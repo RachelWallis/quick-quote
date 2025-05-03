@@ -228,11 +228,11 @@ export async function PUT(req: Request) {
 /* DELETE  /api/questions/:id  – remove question (& cascade options)   */
 /* ------------------------------------------------------------------ */
 export async function DELETE(
-  req: NextRequest,
-  { params }: { params: { id: string } }
+  request: NextRequest,
+  context: { params: { id: string } }
 ) {
   try {
-    await client.execute('DELETE FROM questions WHERE id = ?', [Number(params.id)]);
+    await client.execute('DELETE FROM questions WHERE id = ?', [Number(context.params.id)]);
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error('DELETE /api/questions failed:', err);
