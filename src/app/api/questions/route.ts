@@ -228,8 +228,8 @@ export async function PUT(req: Request) {
 /* DELETE  /api/questions/:id  – remove question (& cascade options)   */
 /* ------------------------------------------------------------------ */
 export async function DELETE(
-  _req: NextRequest,
-  { params }: { params: { id: string } },
+  req: NextRequest,
+  { params }: { params: { id: string } }
 ) {
   try {
     await client.execute('DELETE FROM questions WHERE id = ?', [Number(params.id)]);
