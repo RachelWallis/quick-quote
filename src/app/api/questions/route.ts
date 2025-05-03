@@ -223,22 +223,3 @@ export async function PUT(req: Request) {
     );
   }
 }
-
-/* ------------------------------------------------------------------ */
-/* DELETE  /api/questions/:id  – remove question (& cascade options)   */
-/* ------------------------------------------------------------------ */
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-): Promise<NextResponse> {
-  try {
-    await client.execute('DELETE FROM questions WHERE id = ?', [Number(params.id)]);
-    return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error('DELETE /api/questions failed:', err);
-    return NextResponse.json(
-      { error: err instanceof Error ? err.message : 'Internal Server Error' },
-      { status: 500 },
-    );
-  }
-}
