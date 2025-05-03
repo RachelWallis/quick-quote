@@ -1,0 +1,241 @@
+{
+  "1": {
+    "id": 1,
+    "field": "postcode",
+    "text": "Enter your postcode",
+    "subtext": "We need to know your postcode to establish if we work in your area.",
+    "type": "text",
+    "hint": "UK postcodes typically have a space. For example AB12 3CD.",
+    "validationKey": "postcodeCheck",
+    "next": 2,
+    "input": {
+      "onKeyDown": "if (e.key === 'Enter') { e.preventDefault(); handleNext(); }"
+    }
+  },
+  "2": {
+    "id": 2,
+    "field": "boilerGas",
+    "text": "Does your current boiler run on mains gas?",
+    "subtext": "We're trying to find out about the boiler you have now so we know what we are replacing.",
+    "type": "radio",
+    "options": {
+      "Yes": 3,
+      "No": 4,
+      "I'm not sure": 4
+    },
+    "hint": "To determine if your boiler runs on mains gas, look for a gas pipe connected to the boiler, a flue pipe (this is the pipe that vents combustion gases outside), and a gas meter in your home, which indicates a natural gas supply."
+  },
+  "3": {
+    "id": 3,
+    "field": "knowBoilerType",
+    "text": "Do you know what type of boiler you currently have?",
+    "subtext": "We need to know what you currently have, it will help us make recommendations for what we can fit at your property.",
+    "type": "radio",
+    "options": {
+      "Combi Boiler": 5,
+      "System Boiler": 5,
+      "Standard Boiler": 5,
+      "I'm not sure": 6
+    },
+    "hint": "To determine if you have a combi, system, or standard boiler, look for the number of copper pipes at the bottom of the boiler: combi boilers have five, system boilers have three, and standard boilers have three plus a separate hot water cylinder."
+  },
+  "4": {
+    "id": 4,
+    "field": "hasGasAtProperty",
+    "text": "Do you have mains gas at the property?",
+    "subtext": "This determines if a gas boiler is suitable.",
+    "type": "radio",
+    "options": {
+      "Yes": 3,
+      "No": null,
+      "I'm not sure": null
+    },
+    "hint": "If you're unsure, check with your energy provider."
+  },
+  "5": {
+    "id": 5,
+    "field": "hasWaterTank",
+    "text": "Do you have a water tank?",
+    "subtext": "We need to know so we can factor in if you need it removing or not.",
+    "type": "radio",
+    "options": {
+      "Yes, keep it": 7,
+      "Yes, remove it": 7,
+      "No, I don't": 7,
+      "I'm not sure": 7
+    },
+    "hint": "Water tanks are usually found in airing cupboards or lofts."
+  },
+  "6": {
+    "id": 6,
+    "field": "reselectBoilerType",
+    "text": "These are the different boiler types. Please choose the one that best matches your system.",
+    "subtext": "Combi: no tanks, System: tank but no cylinder, Standard: tank and cylinder.",
+    "type": "radio",
+    "options": {
+      "Combi Boiler": 5,
+      "System Boiler": 5,
+      "Standard Boiler": 5,
+      "I'm still not sure": null
+    },
+    "hint": "If you're still not sure, please call us."
+  },
+  "7": {
+    "id": 7,
+    "field": "keepBoilerType",
+    "text": "Do you want to keep the same type of boiler?",
+    "subtext": "You can upgrade or change it if you like.",
+    "type": "radio",
+    "options": {
+      "Yes, please": 8,
+      "No, I want to change it": 8,
+      "I'm not sure": 8
+    },
+    "hint": "We'll help you choose the best option for your needs."
+  },
+  "8": {
+    "id": 8,
+    "field": "boilerStatus",
+    "text": "How would you describe your current boiler?",
+    "subtext": "This helps us understand your needs better.",
+    "type": "radio",
+    "options": {
+      "Not working": 9,
+      "Old / inefficient": 9,
+      "Not powerful enough": 9,
+      "It's fine, I just want a new one": 9
+    },
+    "hint": "Pick the option that best describes your situation."
+  },
+  "9": {
+    "id": 9,
+    "field": "moveBoiler",
+    "text": "Do you want to keep the boiler in the same place?",
+    "subtext": "Moving the boiler may affect cost.",
+    "type": "radio",
+    "options": {
+      "Yes, please": 11,
+      "No, it needs moving": 10
+    },
+    "hint": "Choose whether to move the boiler or not."
+  },
+  "10": {
+    "id": 10,
+    "field": "newLocation",
+    "text": "Where will the new location be?",
+    "subtext": "This helps determine installation complexity.",
+    "type": "radio",
+    "options": {
+      "Another room, same floor": 11,
+      "Same room, different place": 11,
+      "Garage or loft": 11
+    },
+    "hint": "Tell us where you'd like the boiler to be moved."
+  },
+  "11": {
+    "id": 11,
+    "field": "propertyType",
+    "text": "What sort of property do you have?",
+    "subtext": "This helps us assess installation requirements.",
+    "type": "radio",
+    "options": {
+      "Flat or Apartment": 12,
+      "Terraced House": 13,
+      "Semi-Detached": 13,
+      "Detached House": 13,
+      "Bungalow": 13
+    },
+    "hint": "Choose the option that best describes your property."
+  },
+  "12": {
+    "id": 12,
+    "field": "groundFloor",
+    "text": "Is your property on the ground floor?",
+    "subtext": "This affects how we access your flue.",
+    "type": "radio",
+    "options": {
+      "Yes, it is": 15,
+      "No, it is 2nd floor or higher": 14
+    },
+    "hint": "Let us know if your boiler is upstairs or at height."
+  },
+  "13": {
+    "id": 13,
+    "field": "fluePosition",
+    "text": "Where does your flue exit your home?",
+    "subtext": "This helps us understand ventilation requirements.",
+    "type": "radio",
+    "options": {
+      "Through the roof": 15,
+      "Out the wall": 15,
+      "I'm not sure": 15
+    },
+    "hint": "It's usually a white pipe coming out of a wall or roof."
+  },
+  "14": {
+    "id": 14,
+    "field": "flueAccessible",
+    "text": "Is your boiler's flue accessible from the outside?",
+    "subtext": "This is important for installation and safety.",
+    "type": "radio",
+    "options": {
+      "Yes, it is": 15,
+      "No, it isn't": null
+    },
+    "hint": "If it's difficult to reach from outside, a call may be needed."
+  },
+  "15": {
+    "id": 15,
+    "field": "bedrooms",
+    "text": "How many bedrooms do you have?",
+    "subtext": "This helps us size the boiler correctly.",
+    "type": "radio",
+    "options": {
+      "1 bedroom": 16,
+      "2 bedrooms": 16,
+      "3 bedrooms": 16,
+      "4 bedrooms": 16,
+      "5 bedrooms": 16,
+      "6+ bedrooms": 16
+    },
+    "hint": "Include any loft conversions or annexes."
+  },
+  "16": {
+    "id": 16,
+    "field": "baths",
+    "text": "How many bath tubs do you have?",
+    "subtext": "This helps us understand hot water demand.",
+    "type": "radio",
+    "options": {
+      "0 baths": 17,
+      "1 bath": 17,
+      "2 baths": 17,
+      "3+ baths": 17
+    },
+    "hint": "Include only full-sized baths."
+  },
+  "17": {
+    "id": 17,
+    "field": "showers",
+    "text": "How many separate showers do you have?",
+    "subtext": "Showers have a big impact on boiler choice.",
+    "type": "radio",
+    "options": {
+      "0 showers": 18,
+      "1 shower": 18,
+      "2 showers": 18,
+      "3+ showers": 18
+    },
+    "hint": "Don't count baths with shower attachments."
+  },
+  "18": {
+    "id": 18,
+    "field": "contactDetails",
+    "text": "Where can we send your quote?",
+    "subtext": "We'll only use your details to follow up on this quote.",
+    "type": "text",
+    "hint": "Enter your email address or mobile number so we can retrieve your quote if you want to go ahead, we will not use your details for marketing purposes.",
+    "validationKey": "contactCheck",
+    "next": "results"
+  }
+}
