@@ -229,10 +229,10 @@ export async function PUT(req: Request) {
 /* ------------------------------------------------------------------ */
 export async function DELETE(
   request: NextRequest,
-  context: { params: { id: string } }
-) {
+  { params }: { params: { id: string } }
+): Promise<NextResponse> {
   try {
-    await client.execute('DELETE FROM questions WHERE id = ?', [Number(context.params.id)]);
+    await client.execute('DELETE FROM questions WHERE id = ?', [Number(params.id)]);
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error('DELETE /api/questions failed:', err);
