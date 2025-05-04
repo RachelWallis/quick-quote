@@ -98,7 +98,7 @@ export async function POST(req: NextRequest) {
         body.hint ?? '',
         body.validationKey ?? null,
         body.input ? JSON.stringify(body.input) : null,
-        body.next_question_id === 'Complete' ? 'Complete' : body.next_question_id,
+        body.next_question_id === 'Complete' ? 'Complete' : (body.next_question_id ?? null),
       ],
     );
     const qId = Number(insertQ.lastInsertRowid);
@@ -113,7 +113,7 @@ export async function POST(req: NextRequest) {
           [
             qId,
             o.label,
-            o.next_question_id === 'Complete' ? 'Complete' : o.next_question_id,
+            o.next_question_id === 'Complete' ? 'Complete' : (o.next_question_id ?? null),
             o.price_modifier ?? 0,
           ],
         );
@@ -174,7 +174,7 @@ export async function PUT(req: Request) {
         body.hint ?? '',
         body.validationKey ?? null,
         body.input ? JSON.stringify(body.input) : null,
-        body.next_question_id === 'Complete' ? 'Complete' : body.next_question_id,
+        body.next_question_id === 'Complete' ? 'Complete' : (body.next_question_id ?? null),
         questionId,
       ],
     );
@@ -195,7 +195,7 @@ export async function PUT(req: Request) {
           o.id ?? null,
           questionId,
           o.label,
-          o.next_question_id === 'Complete' ? 'Complete' : o.next_question_id,
+          o.next_question_id === 'Complete' ? 'Complete' : (o.next_question_id ?? null),
           o.price_modifier ?? 0,
         ],
       );
