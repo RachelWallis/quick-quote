@@ -8,7 +8,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export interface OptionIn {
   id?: number;                           // new option => undefined
   label: string;
-  next_question_id?: number | null;
+  next_question_id?: number | null | 'Complete';
   price_modifier?: number | null;
 }
 
@@ -21,7 +21,7 @@ export interface QuestionIn {
   hint?: string;
   validationKey?: string | null;
   input?: Record<string, unknown> | null;
-  next_question_id?: number | null;      // for non‑option questions
+  next_question_id?: number | null | 'Complete';
   options?: OptionIn[];
 }
 
@@ -98,7 +98,7 @@ export async function POST(req: NextRequest) {
         body.hint ?? '',
         body.validationKey ?? null,
         body.input ? JSON.stringify(body.input) : null,
-        body.next_question_id ?? null,
+        body.next_question_id === 'Complete' ? 'Complete' : body.next_question_id,
       ],
     );
     const qId = Number(insertQ.lastInsertRowid);
@@ -113,7 +113,7 @@ export async function POST(req: NextRequest) {
           [
             qId,
             o.label,
-            o.next_question_id ?? null,
+            o.next_question_id === 'Complete' ? 'Complete' : o.next_question_id,
             o.price_modifier ?? 0,
           ],
         );
@@ -174,7 +174,7 @@ export async function PUT(req: Request) {
         body.hint ?? '',
         body.validationKey ?? null,
         body.input ? JSON.stringify(body.input) : null,
-        body.next_question_id ?? null,
+        body.next_question_id === 'Complete' ? 'Complete' : body.next_question_id,
         questionId,
       ],
     );
@@ -195,7 +195,7 @@ export async function PUT(req: Request) {
           o.id ?? null,
           questionId,
           o.label,
-          o.next_question_id ?? null,
+          o.next_question_id === 'Complete' ? 'Complete' : o.next_question_id,
           o.price_modifier ?? 0,
         ],
       );

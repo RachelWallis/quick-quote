@@ -23,7 +23,7 @@ import { IconTrash } from '@tabler/icons-react';
 type Option = {
   id?: number;
   label: string;
-  next_question_id: number | null;
+  next_question_id: number | null | 'Complete';
   price_modifier: number | null;
 };
 
@@ -36,7 +36,7 @@ type Question = {
   hint: string;
   validationKey: string | null;
   input: Record<string, string> | null;
-  next_question_id: number | null; // for non-option questions
+  next_question_id: number | null | 'Complete'; // for non-option questions
   options: Option[];
 };
 
@@ -297,7 +297,7 @@ export default function QuestionsPage() {
                     value={
                       selectedQuestion.next_question_id === null
                         ? ''
-                        : selectedQuestion.next_question_id === -1
+                        : selectedQuestion.next_question_id === 'Complete'
                         ? 'complete'
                         : String(selectedQuestion.next_question_id)
                     }
@@ -307,7 +307,7 @@ export default function QuestionsPage() {
                     onChange={(val) =>
                       handleInputChange(
                         'next_question_id',
-                        val === 'complete' ? -1 : val ? parseInt(val, 10) : null,
+                        val === 'complete' ? 'Complete' : val ? parseInt(val, 10) : null,
                       )
                     }
                     mb="sm"
@@ -355,7 +355,7 @@ export default function QuestionsPage() {
                                 value={
                                   opt.next_question_id === null
                                     ? ''
-                                    : opt.next_question_id === -1
+                                    : opt.next_question_id === 'Complete'
                                     ? 'complete'
                                     : String(opt.next_question_id)
                                 }
@@ -366,7 +366,7 @@ export default function QuestionsPage() {
                                   handleOptionChange(
                                     i,
                                     'next_question_id',
-                                    val === 'complete' ? -1 : val ? parseInt(val, 10) : null,
+                                    val === 'complete' ? 'Complete' : val ? parseInt(val, 10) : null,
                                   )
                                 }
                                 className={colorScheme === 'dark' ? 'dark-select' : undefined}
