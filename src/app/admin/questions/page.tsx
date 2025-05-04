@@ -288,7 +288,7 @@ export default function QuestionsPage() {
                     label="Next Question"
                     data={[
                       { value: '', label: 'Not Set' },
-                      { value: 'end', label: 'End / Results' },
+                      { value: 'end', label: 'Complete' },
                       ...questions.map((qq) => ({
                         value: String(qq.id),
                         label: `${qq.id} – ${qq.text.slice(0, 60)}`,
@@ -346,7 +346,7 @@ export default function QuestionsPage() {
                               <Select
                                 data={[
                                   { value: '', label: 'Not Set' },
-                                  { value: 'end', label: 'End / Results' },
+                                  { value: 'end', label: 'Complete' },
                                   ...questions.map((qq) => ({
                                     value: String(qq.id),
                                     label: `${qq.id} – ${qq.text.slice(0, 60)}`,
