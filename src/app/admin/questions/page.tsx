@@ -288,7 +288,7 @@ export default function QuestionsPage() {
                     label="Next Question"
                     data={[
                       { value: '', label: 'Not Set' },
-                      { value: 'end', label: 'Complete' },
+                      { value: 'complete', label: 'Complete' },
                       ...questions.map((qq) => ({
                         value: String(qq.id),
                         label: `${qq.id} – ${qq.text.slice(0, 60)}`,
@@ -298,7 +298,7 @@ export default function QuestionsPage() {
                       selectedQuestion.next_question_id === null
                         ? ''
                         : selectedQuestion.next_question_id === -1
-                        ? 'end'
+                        ? 'complete'
                         : String(selectedQuestion.next_question_id)
                     }
                     placeholder="Not Set"
@@ -307,7 +307,7 @@ export default function QuestionsPage() {
                     onChange={(val) =>
                       handleInputChange(
                         'next_question_id',
-                        val === 'end' ? -1 : val ? parseInt(val, 10) : null,
+                        val === 'complete' ? -1 : val ? parseInt(val, 10) : null,
                       )
                     }
                     mb="sm"
@@ -346,7 +346,7 @@ export default function QuestionsPage() {
                               <Select
                                 data={[
                                   { value: '', label: 'Not Set' },
-                                  { value: 'end', label: 'Complete' },
+                                  { value: 'complete', label: 'Complete' },
                                   ...questions.map((qq) => ({
                                     value: String(qq.id),
                                     label: `${qq.id} – ${qq.text.slice(0, 60)}`,
@@ -356,7 +356,7 @@ export default function QuestionsPage() {
                                   opt.next_question_id === null
                                     ? ''
                                     : opt.next_question_id === -1
-                                    ? 'end'
+                                    ? 'complete'
                                     : String(opt.next_question_id)
                                 }
                                 placeholder="Not Set"
@@ -366,7 +366,7 @@ export default function QuestionsPage() {
                                   handleOptionChange(
                                     i,
                                     'next_question_id',
-                                    val === 'end' ? -1 : val ? parseInt(val, 10) : null,
+                                    val === 'complete' ? -1 : val ? parseInt(val, 10) : null,
                                   )
                                 }
                                 className={colorScheme === 'dark' ? 'dark-select' : undefined}
